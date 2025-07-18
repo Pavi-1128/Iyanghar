@@ -1,0 +1,134 @@
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const navItems = [
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About Us' },
+    { path: '/services', label: 'Services' },
+    { path: '/enquiry', label: 'Enquiry' },
+    { path: '/client-portal', label: 'Client Portal' },
+    { path: '/admin', label: 'Admin' },
+  ];
+
+  const isActive = (path: string) => location.pathname === path;
+
+  return (
+    <header className="bg-white shadow-lg sticky top-0 z-50">
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2">
+            <motion.div
+              className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="text-white font-bold text-xl">P</span>
+            </motion.div>
+            <div>
+              <h1 className="text-xl font-bold text-gray-800">Dr. P.K. Iyenghar</h1>
+              <p className="text-sm text-gray-600">CA & Consulting Services</p>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+                  isActive(item.path) ? 'text-blue-600' : 'text-gray-700'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Contact Actions */}
+          <div className="hidden md:flex items-center space-x-4">
+            <motion.a
+              href="tel:+91-9876543210"
+              className="flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Phone className="w-4 h-4" />
+              <span className="text-sm">Call Now</span>
+            </motion.a>
+            <motion.a
+              href="https://wa.me/919876543210"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span className="text-sm">WhatsApp</span>
+            </motion.a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <motion.nav
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="md:hidden mt-4 pt-4 border-t border-gray-200"
+          >
+            <div className="flex flex-col space-y-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+                    isActive(item.path) ? 'text-blue-600' : 'text-gray-700'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <div className="flex space-x-4 pt-4">
+                <a
+                  href="tel:+91-9876543210"
+                  className="flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  <span className="text-sm">Call Now</span>
+                </a>
+                <a
+                  href="https://wa.me/919876543210"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span className="text-sm">WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </motion.nav>
+        )}
+      </div>
+    </header>
+  );
+};
+
+export default Header;
