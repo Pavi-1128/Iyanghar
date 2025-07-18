@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -7,10 +8,9 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Enquiry from './pages/Enquiry';
-import ClientPortal from './pages/ClientPortal';
-import AdminPanel from './pages/AdminPanel';
+import PageNotFound from './pages/PageNotFound'; // Import PageNotFound component
 
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
@@ -26,14 +26,14 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/enquiry" element={<Enquiry />} />
-            <Route path="/client-portal" element={<ClientPortal />} />
-            <Route path="/admin" element={<AdminPanel />} />
+            {/* Catch-all route for undefined pages */}
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </motion.main>
         <Footer />
       </div>
     </Router>
   );
-}
+};
 
 export default App;
