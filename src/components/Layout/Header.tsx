@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Menu, X, Phone, MessageCircle } from 'lucide-react';
@@ -7,17 +7,37 @@ import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About Us' },
     { path: '/services', label: 'Services' },
     { path: '/enquiry', label: 'Enquiry' },
-    // { path: '/client-portal', label: 'Client Portal' },
-    // { path: '/admin', label: 'Admin' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
+
+  // Detect click outside menu
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (
+        isMenuOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   return (
     <header className="fixed w-full top-0 z-50">
@@ -46,7 +66,7 @@ const Header = () => {
                   key={item.path}
                   to={item.path}
                   className={`text-sm font-medium transition-colors hover:text-yellow-300 ${
-                    isActive(item.path) ? 'text-yellow-300' : 'text-white'
+                    isActive(item.path) ? 'text-yellow-500' : 'text-white'
                   }`}
                 >
                   {item.label}
@@ -79,10 +99,7 @@ const Header = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
+            <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
@@ -90,27 +107,28 @@ const Header = () => {
           {/* Mobile Navigation */}
           {isMenuOpen && (
             <motion.nav
+              ref={menuRef}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               className="md:hidden mt-4 pt-4 border-t border-gray-200"
             >
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col items-center space-y-4">
                 {navItems.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                      isActive(item.path) ? 'text-blue-600' : 'text-gray-700'
+                    className={`text-base font-medium transition-colors hover:text-yellow-400 ${
+                      isActive(item.path) ? 'text-yellow-300' : 'text-white'
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
                   </Link>
                 ))}
-                <div className="flex space-x-4 pt-4">
+                <div className="flex flex-col gap-3 w-full items-center pt-4">
                   <a
                     href="tel:+91-9876543210"
-                    className="flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+                    className="flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors w-4/5 justify-center"
                   >
                     <Phone className="w-4 h-4" />
                     <span className="text-sm">Call Now</span>
@@ -119,7 +137,7 @@ const Header = () => {
                     href="https://wa.me/919876543210"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                    className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors w-4/5 justify-center"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span className="text-sm">WhatsApp</span>

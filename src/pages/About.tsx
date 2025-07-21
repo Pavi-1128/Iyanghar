@@ -32,56 +32,36 @@ const About = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-          {/* <section
-      className="bg-cover bg-center text-white py-32"
-      style={{ backgroundImage: `url(${AboutImg})` }}
-    >
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center space-y-6"
-        >
-          <h1 className="text-5xl font-bold">About Dr. P.K. Iyenghar</h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            A trusted name in professional CA services with a commitment to excellence,
-            integrity, and comprehensive business solutions.
-          </p>
-        </motion.div>
-      </div>
-    </section> */}
-      
-       <section
-      className="relative bg-cover bg-center text-white py-32"
-      style={{
-        backgroundImage: `url(${AboutImg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      {/* Background Blur Overlay */}
-      <div className="absolute inset-0 bg-black opacity-40"></div> {/* Optional Dark Overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center filter blur-sm"
-        style={{ backgroundImage: `url(${AboutImg})` }} // Apply the same image again for the blurred effect
-      ></div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center space-y-6"
-        >
-          <h1 className="text-5xl font-bold">About Dr. P.K. Iyenghar</h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            A trusted name in professional CA services with a commitment to excellence,
-            integrity, and comprehensive business solutions.
-          </p>
-        </motion.div>
-      </div>
-    </section>
+      <section
+        className="relative bg-cover bg-center text-white py-20 md:py-32"
+        style={{
+          backgroundImage: `url(${AboutImg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Background Blur Overlay */}
+        <div className="absolute inset-0 bg-black opacity-40"></div>
+        <div
+          className="absolute inset-0 bg-cover bg-center filter blur-sm"
+          style={{ backgroundImage: `url(${AboutImg})` }}
+        ></div>
+
+        <div className="container mx-auto px-4 relative z-10 pt-24 md:pt-0">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center space-y-4 md:space-y-6"
+          >
+            <h1 className="text-3xl md:text-5xl font-bold">About Dr. P.K. Iyenghar</h1>
+            <p className="text-base md:text-xl text-blue-100 max-w-3xl mx-auto">
+              A trusted name in professional CA services with a commitment to excellence,
+              integrity, and comprehensive business solutions.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
 
       {/* Profile Section */}
@@ -157,23 +137,6 @@ const About = () => {
             </p>
           </motion.div>
 
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {achievements.map((achievement, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <achievement.icon className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-3xl font-bold text-white mb-2">{achievement.title}</h3>
-                <p className="text-gray-300">{achievement.description}</p>
-              </motion.div>
-            ))}
-          </div> */}
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {achievements.map((achievement, index) => (

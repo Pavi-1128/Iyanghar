@@ -112,7 +112,7 @@ const Enquiry = () => {
         </div>
       </section> */}
 
-       <section
+       {/* <section
       className="relative bg-cover bg-center text-white"
       style={{
         backgroundImage: `url(${EnquiryImg})`,
@@ -120,11 +120,11 @@ const Enquiry = () => {
         backgroundPosition: 'center',
       }}
     >
-      {/* Background Blur Overlay */}
-      <div className="absolute inset-0 bg-black opacity-40"></div> {/* Optional Dark Overlay */}
+      
+      <div className="absolute inset-0 bg-black opacity-40"></div> 
       <div
         className="absolute inset-0 bg-cover bg-center filter blur-sm"
-        style={{ backgroundImage: `url(${EnquiryImg})` }} // Apply the same image again for the blurred effect
+        style={{ backgroundImage: `url(${EnquiryImg})` }} 
       ></div>
       
       <div className="container mx-auto px-4 py-32 relative z-10">
@@ -141,7 +141,40 @@ const Enquiry = () => {
           </p>
         </motion.div>
       </div>
-    </section>
+    </section> */}
+
+    <section
+  className="relative bg-cover bg-center text-white h-[70vh] md:h-auto"
+  style={{
+    backgroundImage: `url(${EnquiryImg})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }}
+>
+  {/* Background Blur Overlay */}
+  <div className="absolute inset-0 bg-black opacity-40"></div>
+  <div
+    className="absolute inset-0 bg-cover bg-center filter blur-sm"
+    style={{ backgroundImage: `url(${EnquiryImg})` }}
+  ></div>
+
+  {/* Content Wrapper */}
+  <div className="container mx-auto px-4 py-32 relative z-10">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-center space-y-6"
+    >
+      <h1 className="text-4xl md:text-6xl font-bold">Get In Touch</h1>
+      <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+        Ready to get started? Send us your enquiry and we'll respond within 24 hours
+        with a personalized solution for your business needs.
+      </p>
+    </motion.div>
+  </div>
+</section>
+
 
       {/* Contact Form & Info Section */}
       <section className="py-20 relative">

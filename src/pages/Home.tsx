@@ -73,12 +73,12 @@ const Home = () => {
         }}
       >
         <div className="container mx-auto px-4 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-6 md:mt-12">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-6 mt-12"
+              className="space-y-6 mt-6 md:mt-12"
             >
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                 Professional
@@ -116,7 +116,7 @@ const Home = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative mt-12"
+              className="relative mt-6 md:mt-12"
             >
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 space-y-6">
                 <div className="flex items-center space-x-4">
@@ -144,7 +144,6 @@ const Home = () => {
             </motion.div>
           </div>
         </div>
-
       </section>
 
 
