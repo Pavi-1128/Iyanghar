@@ -249,7 +249,7 @@ const Services = () => {
                               <ul className="space-y-2">
                                 {subcategory.items.map((item, itemIndex) => (
                                   <li key={itemIndex} className="flex items-start space-x-2">
-                                    <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                                    <CheckCircle className="w-4 h-4 text-yellow-500 mt-0.5 flex-shrink-0" />
                                     <span className="text-sm text-gray-300">{item}</span>
                                   </li>
                                 ))}
