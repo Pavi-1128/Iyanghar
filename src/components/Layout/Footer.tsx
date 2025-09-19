@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, MessageCircle, Clock } from 'lucide-react';
+import { Phone, Mail, MessageCircle, Clock } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -11,8 +11,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-bold">Dr. P.K. Iyenghar</h3>
             <p className="text-gray-400">
-              Professional CA & Consulting Services providing comprehensive business solutions
-              for individuals, SMEs, and students.
+              We provide Professional Tax Consulting Services with comprehensive business solutions for individuals, SMEs, and students.
             </p>
             <div className="flex space-x-4">
               <motion.a
@@ -66,10 +65,6 @@ const Footer = () => {
                 <Mail className="w-4 h-4" />
                 <span>info@pkiyenghar.com</span>
               </div>
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-4 h-4 mt-1" />
-                <span>123 Business District, City Name, State - 123456</span>
-              </div>
             </div>
           </div>
 
@@ -80,9 +75,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Clock className="w-4 h-4" />
                 <div>
-                  <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
-                  <p>Sat: 9:00 AM - 2:00 PM</p>
-                  <p>Sun: Closed</p>
+                  <p>Mon - Fri: 10:00 AM - 2:00 PM</p>
                 </div>
               </div>
             </div>
@@ -90,7 +83,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 Dr. P.K. Iyenghar - CA & Consulting Services. All rights reserved.</p>
+          <p>&copy; 2025 Dr. P.K. Iyenghar - Professional Tax Consulting Services. All rights reserved.</p>
         </div>
       </div>
     </footer>

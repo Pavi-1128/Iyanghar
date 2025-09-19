@@ -94,57 +94,29 @@ const Services = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      {/* <section className="relative bg-cover bg-center text-white py-32"
-        style={{
-          backgroundImage: `url(${ServiceImg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <div className="absolute inset-0 bg-black opacity-40"></div>
-        <div className="absolute inset-0 bg-cover bg-center filter blur-sm"
-          style={{ backgroundImage: `url(${ServiceImg})` }}
-        ></div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center space-y-6"
-          >
-            <h1 className="text-5xl font-bold">Our Services</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Comprehensive business solutions tailored to meet your specific needs
-              with professional expertise and dedicated support.
-            </p>
-          </motion.div>
-        </div>
-      </section> */}
-
-      <section
-  className="relative bg-cover bg-center text-white py-20 md:py-32"
+<section
+  className="relative bg-cover bg-center text-white min-h-[45vh] md:min-h-[55vh] flex items-center"
   style={{
     backgroundImage: `url(${ServiceImg})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   }}
 >
+  {/* Background Overlay */}
   <div className="absolute inset-0 bg-black opacity-40"></div>
   <div
     className="absolute inset-0 bg-cover bg-center filter blur-sm"
     style={{ backgroundImage: `url(${ServiceImg})` }}
   ></div>
 
-  <div className="container mx-auto px-4 relative z-10 pt-24 md:pt-0">
+  <div className="container mx-auto px-4 relative z-10 text-center">
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="text-center space-y-4 md:space-y-6"
+      className="space-y-4 md:space-y-6 mt-20 md:mt-0"
     >
-      <h1 className="text-3xl md:text-5xl font-bold">Our Services</h1>
+      <h1 className="text-2xl md:text-5xl font-bold">Our Services</h1>
       <p className="text-base md:text-xl text-blue-100 max-w-3xl mx-auto">
         Comprehensive business solutions tailored to meet your specific needs
         with professional expertise and dedicated support.
@@ -152,6 +124,7 @@ const Services = () => {
     </motion.div>
   </div>
 </section>
+
 
 
       {/* Services Section */}
@@ -178,7 +151,7 @@ const Services = () => {
                     <div className="flex flex-col sm:flex-row items-center justify-between flex-grow space-y-4 sm:space-y-0 sm:space-x-4">
                       <div className="flex items-center space-x-4">
                         <div className={`w-12 h-12 ${service.color} rounded-full flex items-center justify-center`}>
-                          <service.icon className="w-6 h-6 text-white" />
+                          <service.icon className="w-6 h-6 text-yellow-900" />
                         </div>
                         <div>
                           <h3 className="text-xl font-bold text-white">{service.title}</h3>

@@ -55,17 +55,17 @@ const Header = () => {
               </motion.div>
               <div>
                 <h1 className="text-xl font-bold text-white">Dr. P.K. Iyenghar</h1>
-                <p className="text-sm text-white">CA & Consulting Services</p>
+                <p className="text-sm text-white"> Professional Tax Consulting Services</p>
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            {/* Desktop Navigation (show from lg and above) */}
+            <nav className="hidden lg:flex items-center space-x-8">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`text-sm font-medium transition-colors hover:text-yellow-300 ${
+                  className={`text-base font-medium transition-colors hover:text-yellow-300 ${
                     isActive(item.path) ? 'text-yellow-500' : 'text-white'
                   }`}
                 >
@@ -74,8 +74,8 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* Contact Actions */}
-            <div className="hidden md:flex items-center space-x-4">
+            {/* Contact Actions (show from lg and above) */}
+            <div className="hidden lg:flex items-center space-x-4">
               <motion.a
                 href="tel:+91-9876543210"
                 className="flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
@@ -98,19 +98,19 @@ const Header = () => {
               </motion.a>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {/* Mobile/Tablet Menu Button (up to lg) */}
+            <button className="lg:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
 
-          {/* Mobile Navigation */}
+          {/* Mobile/Tablet Navigation */}
           {isMenuOpen && (
             <motion.nav
               ref={menuRef}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="md:hidden mt-4 pt-4 border-t border-gray-200"
+              className="lg:hidden mt-4 pt-4 border-t border-gray-200"
             >
               <div className="flex flex-col items-center space-y-4">
                 {navItems.map((item) => (

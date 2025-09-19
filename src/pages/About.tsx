@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Users, Calendar, Target, CheckCircle, Trophy } from 'lucide-react';
-import AboutImg from "../asset/AboutImg.jpg"
+import AboutImg from "../asset/AboutImg7.jpg"
 
 const About = () => {
   const achievements = [
-    { icon: Calendar, title: '15+ Years', description: 'Professional Experience' },
+    { icon: Calendar, title: '20+ Years', description: 'Professional Experience' },
     { icon: Users, title: '500+', description: 'Happy Clients' },
     { icon: Trophy, title: '98%', description: 'Success Rate' },
     { icon: Award, title: '25+', description: 'Professional Certifications' }
@@ -21,7 +21,7 @@ const About = () => {
   ];
 
   const expertise = [
-    'Chartered Accountant with 15+ years experience',
+    'Professional Tax Consulting with 15+ years experience',
     'Specialized in GST implementation and compliance',
     'Expert in business registration and licensing',
     'Proficient in digital signature solutions',
@@ -31,37 +31,54 @@ const About = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section
-        className="relative bg-cover bg-center text-white py-20 md:py-32"
-        style={{
-          backgroundImage: `url(${AboutImg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        {/* Background Blur Overlay */}
-        <div className="absolute inset-0 bg-black opacity-40"></div>
-        <div
-          className="absolute inset-0 bg-cover bg-center filter blur-sm"
-          style={{ backgroundImage: `url(${AboutImg})` }}
-        ></div>
+   <section
+  className="relative bg-cover bg-center text-white min-h-[45vh] md:min-h-[55vh] flex items-center"
+  style={{
+    backgroundImage: `url(${AboutImg})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  {/* Background Blur Overlay */}
+  <div className="absolute inset-0 bg-black opacity-40"></div>
+  <div
+    className="absolute inset-0 bg-cover bg-center filter blur-sm"
+    style={{ backgroundImage: `url(${AboutImg})` }}
+  ></div>
 
-        <div className="container mx-auto px-4 relative z-10 pt-24 md:pt-0">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center space-y-4 md:space-y-6"
-          >
-            <h1 className="text-3xl md:text-5xl font-bold">About Dr. P.K. Iyenghar</h1>
-            <p className="text-base md:text-xl text-blue-100 max-w-3xl mx-auto">
-              A trusted name in professional CA services with a commitment to excellence,
-              integrity, and comprehensive business solutions.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+  <div className="container mx-auto px-4 relative z-10 text-center">
+    {/* <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="space-y-4 md:space-y-6"
+    >
+      <h1 className="text-2xl  md:text-5xl font-bold">
+        About Dr. P.K. Iyenghar
+      </h1>
+      <p className="text-base md:text-xl text-blue-100 max-w-3xl mx-auto">
+        A trusted name in professional tax consulting services with a commitment to
+        excellence, integrity, and comprehensive business solutions.
+      </p>
+    </motion.div> */}
+    <motion.div
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  className="space-y-4 md:space-y-6 mt-20 md:mt-0"
+>
+  <h1 className="text-2xl md:text-5xl font-bold">
+    About Dr. P.K. Iyenghar
+  </h1>
+  <p className="text-base md:text-xl text-blue-100 max-w-3xl mx-auto">
+    A trusted name in professional tax consulting services with a commitment to
+    excellence, integrity, and comprehensive business solutions.
+  </p>
+</motion.div>
+
+  </div>
+</section>
+
 
 
       {/* Profile Section */}
@@ -85,10 +102,10 @@ const About = () => {
               <div>
                 <h2 className="text-4xl font-bold text-white mb-4">Dr. P.K. Iyenghar</h2>
                 <p className="text-xl text-yellow-400 font-semibold mb-4">
-                  Chartered Accountant & Business Consultant
+                  Professional Tax Consultant & Business Consultant
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  With over 15 years of dedicated service in the field of taxation and business
+                  With over 20+ years of dedicated service in the field of taxation and business
                   consultancy, Dr. P.K. Iyenghar has established himself as a trusted advisor
                   for businesses of all sizes. His expertise spans across various domains including
                   GST implementation, income tax planning, business registrations, and comprehensive
@@ -139,27 +156,27 @@ const About = () => {
 
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {achievements.map((achievement, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.05 }}
-                className="bg-gradient-to-br from-gray-900 via-black to-gray-900 bg-opacity-50 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center shadow-2xl hover:shadow-gray-500/20 transition-all duration-300 group"
-              >
-                <div className={`w-16 h-16 rounded-full bg-gradient-to-br  flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300`}>
-                  <achievement.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-3xl font-bold text-white mb-2 group-hover:text-gray-300 transition-colors">
-                  {achievement.title}
-                </h3>
-                <p className="text-gray-300 group-hover:text-gray-200 transition-colors">
-                  {achievement.description}
-                </p>
-              </motion.div>
-            ))}
+      {achievements.map((achievement, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: index * 0.1 }}
+          whileHover={{ y: -10, scale: 1.05 }}
+          className="bg-gradient-to-br from-gray-900 via-black to-gray-900 bg-opacity-50 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center shadow-2xl hover:shadow-gray-500/20 transition-all duration-300 group"
+        >
+          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-gray-800 via-gray-900 to-black flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+            <achievement.icon className="w-8 h-8 text-white" />
           </div>
+          <h3 className="text-3xl font-bold text-yellow-500 mb-2 group-hover:text-yellow-400 transition-colors">
+            {achievement.title}
+          </h3>
+          <p className="text-gray-300 group-hover:text-gray-200 transition-colors">
+            {achievement.description}
+          </p>
+        </motion.div>
+      ))}
+    </div>
 
         </div>
       </section>
@@ -231,7 +248,7 @@ const About = () => {
 
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-12 bg-gray-900 text-white">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
