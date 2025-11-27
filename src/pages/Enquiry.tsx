@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
-import EnquiryImg from "../asset/EnquiryImg.jpg";
+import EnquiryImg from "../asset/Enquiry.jpg";
 
 const Enquiry = () => {
   const [formData, setFormData] = useState({
@@ -178,7 +178,7 @@ const Enquiry = () => {
                 className="space-y-4 md:space-y-6 mt-20 md:mt-0"
               >
                 <h1 className="text-2xl md:text-6xl font-bold text-[#38215e]">Get In Touch</h1>
-                <p className="text-base max-w-3xl mx-auto text-[#38215e]">
+                <p className="text-base  max-w-3xl mx-auto text-[#38215e]">
                   Ready to get started? Send us your enquiry and we'll respond
                   within 24 hours with a personalized solution for your business
                   needs.
