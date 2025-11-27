@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
-import EnquiryImg from "../asset/Enquiryimg.jpg";
+import EnquiryImg from "../asset/EnquiryImg.jpg";
 
 const Enquiry = () => {
   const [formData, setFormData] = useState({
