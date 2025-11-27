@@ -54,7 +54,7 @@ import ScrollToTop from './components/ScrollToTop'; // ✅ Import ScrollToTop
 const App: React.FC = () => {
   return (
     <Router>
-      <ScrollToTop /> {/* ✅ Call it right inside Router */}
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Header />
         <motion.main
