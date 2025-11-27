@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ServiceImg from "../asset/Serviceimg.jpg";
+import ServiceImg from "../asset/ServiceImg.jpg";
 import {
   Calculator,
   FileText,
